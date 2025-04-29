@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
   <title>Samy's Portfolio</title>
   <style>
@@ -12,7 +13,7 @@
       z-index: 100;
       position: sticky;
       top: 0;
-      background: #030303;
+      background: #181818;
       padding: 10px;
       text-align: center;
     }
@@ -39,23 +40,23 @@
       margin: 0px;
 }
 
-    .cv-box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Centrer la boîte */
-  background-color: rgba(129, 129, 129, 0.137); /* Fond semi-transparent */
-  margin: 135px 0 0 420px;
-  padding: 30px;
-  width: 450px; 
-  height : 600px;
+.cv-box {
+  position: absolute; /* fixe à l'écran, indépendamment du reste */
+  top: 0px; /* ajuste la position verticale */
+  left: 50%; /* centre horizontalement */
+  transform: translateX(74%); /* pour bien centrer */
+   /* s'affiche au-dessus de tout */
+  background-color: rgba(129, 129, 129, 0.137);
+  width: 450px;
+  height: 600px;
   border-radius: 8px;
   text-align: center;
-  color: white;
+  color: rgb(0, 0, 0);
   box-shadow: 0 4px 10px rgba(236, 230, 230, 0.3);
 }
 
-.cv-box h2 {
+
+.cv-box h1 {
   margin-bottom: 20px;
   font-size: 24px;
 }
@@ -65,10 +66,11 @@
     }
 
     .cv-box a {
-      color: #fdfdfd;
+      color: #000000;
       text-decoration: none;
-      font-size: 18px;
-      border: 2px solid #ffffff;
+      font-size: 24px;
+      font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      border: 2px solid #000000;
       padding: 10px 20px;
       border-radius: 4px;
       transition: all 0.3s;
@@ -82,12 +84,17 @@
     
     
     .cv-box-preview{
+      position: relative;
       display: flex;
       justify-content: center;
       gap: 375px;
       max-width: 85%;
       height:67%; 
       margin-top: 70px;
+      opacity: 1;
+  max-height: 1000px; /* valeur assez grande pour couvrir son contenu */
+  transition: opacity 0.5s ease, max-height 0.5s ease;
+  overflow: hidden;
 
     }
     .cv-box-preview img {
@@ -124,13 +131,17 @@
     #experience { background: #212121; }
     #contact { background: #212121; }
 
+    #apropos h1 {
+      margin-bottom: 20px;
+    }
+
     .mini-carousel {
   display: flex;
   justify-content: center;
   align-items: center;
   max-width: 1200px;
   margin: 0 auto; 
-  padding: 30px;
+  padding-bottom: 30px ;
   border: 1px solid #444; 
   border-radius: 12px;
   background-color: #181818; 
@@ -167,7 +178,7 @@
   border-radius: 4px;
   opacity: 0;
   transition: opacity 0.5s ease;
-  margin-bottom: 10px;
+  
 }
 
 .image-side img.active {
@@ -183,16 +194,25 @@
 }
 
 .carousel-controls button {
-  background: #f0f0f0;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.15); 
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  padding: 12px 16px;
+  margin: 0 10px;
+  font-size: 20px;
+  border-radius: 50px;
   cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .carousel-controls button:hover {
-  background: #e0e0e0;
+  background: rgba(255, 255, 255, 0.473);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
 }
+
 
 .indicator {
   font-size: 0.9rem;
@@ -278,6 +298,182 @@ footer {
   text-decoration: underline;
 }
 
+@media (max-width: 768px) {
+  nav a {
+    display: block;
+    margin: 10px 0;
+    font-size: 22px;
+  }
+
+  .cv-box {
+    display: none;
+  }
+
+  .cv-box-preview {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin-top: 30px;
+  }
+
+  .cv-box-preview p {
+    padding: 0;
+    text-align: center;
+  }
+
+  .mini-carousel {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .content-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .text-side, .image-side {
+    width: 100%;
+  }
+
+  .experience-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .project-box {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  section h1 {
+    font-size: 40px;
+  }
+
+  section p {
+    font-size: 16px;
+  }
+
+  .carousel-title {
+    font-size: 24px;
+  }
+
+  footer {
+    font-size: 18px;
+  }
+}
+
+/* Tablettes (601px à 1024px) */
+@media (max-width: 1919px) and (min-width: 601px) {
+  .cv-box {
+    width: 30%;
+    height: 95%;
+    margin: 0px auto;
+    transform: none;
+    transform: translateX(210px);
+    
+  }
+
+  .cv-box-preview {
+    gap: 40px;
+  }
+
+  .experience-container {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+
+  .project-box {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+
+  .content-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .text-side, .image-side {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1600px) {
+  .mini-carousel {
+    max-width: 80vw;
+    padding: 30px;
+  }
+
+  .carousel-title {
+    font-size: 26px;
+  }
+
+  .carousel-desc {
+    font-size: 17px;
+  }
+
+  .image-side img {
+    height: 260px;
+  }
+
+  .cv-box-preview p {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 1300px) {
+  .cv-box-preview{
+    opacity: 0;
+    max-height: 0;
+    pointer-events: none;
+  }
+  .mini-carousel {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .carousel-text {
+    margin-bottom: 20px;
+    max-width: 90%;
+  }
+
+  .image-side {
+    margin-top: 20px;
+  }
+
+  .image-side img {
+    height: 220px;
+  }
+
+  .carousel-controls {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 1024px) {
+  .mini-carousel {
+    max-width: 95vw;
+    padding: 20px;
+  }
+
+  .carousel-title {
+    font-size: 22px;
+  }
+
+  .carousel-desc {
+    font-size: 15px;
+  }
+
+  .image-side img {
+    height: 200px;
+  }
+
+  .cv-box-preview p {
+    font-size: 14px;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -301,13 +497,14 @@ footer {
 
 
     <img src="image/cvsamypreview.png" alt="Aperçu de mon CV" >
-</div>
 
-  <div class="cv-box">
-    <h2>Mon CV</h2>
-    <a href="CV SAMY KANEB .pdf" download>Télécharger mon CV</a>
-  </div>
+    <div class = cv-box>
+      <h1>Cliquer pour telecharger</h1>
+      <a href="CV SAMY KANEB .pdf" download>Télécharger mon CV</a>
+    </div>
+</div>
 </section>
+
 
 <section id="apropos">
   <h1>À propos</h1>
@@ -327,6 +524,7 @@ footer {
           <button class="prev-btn">←</button>
           <span class="indicator">1/2</span>
           <button class="next-btn">→</button>
+          
         </div>
       </div>
     </div>
@@ -350,10 +548,6 @@ footer {
   </div>
 </section>
 
-<!-- <section id="contact">
-  <h1>Contact</h1>
-  <p>Contenu de la section contact</p>
-</section> -->
 
 <footer>
   <div class="footer-content">
@@ -430,6 +624,78 @@ footer {
   // Initialisation
   updateSlide(0);
 });
+
+// Seuil modifiable : largeur minimale requise pour afficher la div
+const minWidthRequired = 1420; // ← Change cette valeur si besoin
+
+function checkAndToggleCvBox() {
+  const cvBox = document.querySelector('.cv-box');
+  const currentWidth = window.innerWidth;
+
+  if (currentWidth < minWidthRequired && cvBox) {
+    // Supprimer la div si trop étroit
+    cvBox.remove();
+    console.log('cv-box supprimée : trop petit');
+  } else if (currentWidth >= minWidthRequired && !cvBox) {
+    // Recréer la div si on est revenu au-dessus du seuil
+    const previewContainer = document.querySelector('.cv-box-preview');
+    const newDiv = document.createElement('div');
+    newDiv.className = 'cv-box';
+    newDiv.innerHTML = `
+      <h1>Cliquer pour telecharger</h1>
+      <a href="CV SAMY KANEB .pdf" download>Télécharger mon CV</a>
+    `;
+    previewContainer.appendChild(newDiv);
+    console.log('cv-box recréée : largeur suffisante');
+  }
+}
+
+// Lancer à chaque redimensionnement
+window.addEventListener('resize', checkAndToggleCvBox);
+
+// Vérifier au chargement initial
+document.addEventListener('DOMContentLoaded', checkAndToggleCvBox);
+function updateAproposImageBasedOnWidth() {
+  const imageSide = document.querySelector('.image-side');
+  const images = imageSide.querySelectorAll('img');
+  const containerWidth = imageSide.clientWidth;
+
+  // Seuil arbitraire (ajuste selon besoin) : si trop petit, on passe à la photo 2
+  const minWidthForBoth = 500;
+
+  if (containerWidth < minWidthForBoth) {
+    images[0].classList.remove('active'); // cache photo 1
+    images[1].classList.add('active');    // affiche photo 2
+  } else {
+    images[0].classList.add('active');    // affiche photo 1
+    images[1].classList.remove('active'); // cache photo 2
+  }
+}
+
+// Réagit aux changements de taille
+window.addEventListener('resize', updateAproposImageBasedOnWidth);
+document.addEventListener('DOMContentLoaded', updateAproposImageBasedOnWidth);
+
+// Seuil modifiable : largeur maximale autorisée avant suppression de la div
+const maxWidthBeforeRemove = 1920; // <-- Modifie cette valeur selon ton besoin
+
+function checkAndRemoveCvBox() {
+  const cvBox = document.querySelector('.cv-box');
+  const currentWidth = window.innerWidth;
+
+  if (currentWidth > maxWidthBeforeRemove && cvBox) {
+    cvBox.remove();
+    console.log('cv-box supprimée : largeur trop grande');
+  }
+}
+
+// Écouteur sur le redimensionnement de la fenêtre
+window.addEventListener('resize', checkAndRemoveCvBox);
+
+// Vérification initiale au chargement de la page
+document.addEventListener('DOMContentLoaded', checkAndRemoveCvBox);
+
+
 </script>
 
 </body>
