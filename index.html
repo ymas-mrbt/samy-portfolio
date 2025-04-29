@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Samy's Portfolio</title>
+  <style>
+    body{
+        background-color: #030303;
+        color: white;
+    }
+    nav {
+      z-index: 100;
+      position: sticky;
+      top: 0;
+      background: #030303;
+      padding: 10px;
+      text-align: center;
+    }
+    
+    nav a {
+      color: white;
+      font-size:  30px;
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      text-decoration: none;
+      margin: 0 30px;
+      font-family: Arial;
+      cursor: pointer;
+    
+    }
+    #accueil p {
+      display: flex;
+      justify-content: flex-start;
+      text-align: center; 
+  font-family: 'Dancing Script', cursive; 
+  font-size: 19px; 
+  line-height: 1.6; 
+  color: #dfdfdf; 
+  max-width: 700px;
+      margin: 0px;
+}
+
+    .cv-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centrer la boîte */
+  background-color: rgba(129, 129, 129, 0.137); /* Fond semi-transparent */
+  margin: 135px 0 0 420px;
+  padding: 30px;
+  width: 450px; 
+  height : 600px;
+  border-radius: 8px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 4px 10px rgba(236, 230, 230, 0.3);
+}
+
+.cv-box h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+    .cv-box:hover {
+      background-color: #e0e0e073;
+      transition-duration: 1000ms;
+    }
+
+    .cv-box a {
+      color: #fdfdfd;
+      text-decoration: none;
+      font-size: 18px;
+      border: 2px solid #ffffff;
+      padding: 10px 20px;
+      border-radius: 4px;
+      transition: all 0.3s;
+    }
+
+    .cv-box a:hover {
+      background-color: #fa4cfa;
+      color: white;
+  }
+
+    
+    
+    .cv-box-preview{
+      display: flex;
+      justify-content: center;
+      gap: 375px;
+      max-width: 85%;
+      height:67%; 
+      margin-top: 70px;
+
+    }
+    .cv-box-preview img {
+      padding:0 0 30px;
+    }
+    .cv-box-preview p {
+      padding: 150px 0 0 75px;
+    }
+    nav a:hover {
+      color: #fa4cfa;
+      transition-duration: 500ms;
+    }
+    
+    section {
+      height: 100vh;
+      padding: 40px;
+    }
+    section p {
+      font-size: 20px;
+    }
+    section h1 {
+      text-align: center;
+      font-size: 80px;
+      margin-top: 0;
+      padding-top: 40px;
+      margin-bottom: 10px;
+    }
+    #experience {
+      margin-bottom: 0; 
+    }
+    
+    #accueil { background: #212121; }
+    #apropos { background: #212121; }
+    #experience { background: #212121; }
+    #contact { background: #212121; }
+
+    .mini-carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto; 
+  padding: 30px;
+  border: 1px solid #444; 
+  border-radius: 12px;
+  background-color: #181818; 
+}
+.content-wrapper {
+  display: flex;
+  gap: 15px;
+}
+
+.carousel-title{
+  font-size: 30px; 
+  text-align: center; 
+  margin-bottom: 20px;
+}
+.text-side {
+  flex: 1;
+  min-width: 0;
+  width: 500px;
+}
+
+.image-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 450px;
+  position: relative;
+}
+
+.image-side img {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  object-fit: cover; 
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  margin-bottom: 10px;
+}
+
+.image-side img.active {
+  opacity: 1;
+}
+
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  
+}
+
+.carousel-controls button {
+  background: #f0f0f0;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.carousel-controls button:hover {
+  background: #e0e0e0;
+}
+
+.indicator {
+  font-size: 0.9rem;
+}
+.experience-container {
+  display: flex;
+  justify-content: space-between; /* Aligne les éléments sur les côtés gauche et droit */
+  gap: 20px; /* Espacement entre les éléments */
+  max-width: 1200px;
+  height: 500px;
+  margin: 0 auto; /* Centrer le conteneur */
+}
+
+.project-box.left:hover {
+  background-color: #f5bef073;
+  transition-duration: 1000ms;
+}
+.project-box.left img {
+  height: 300px;
+}
+.project-box.left h1 {
+  font-size:25px;
+}
+
+.project-box.right:hover {
+  background-color: #f5bef073;
+  transition-duration: 1000ms;
+}
+
+.project-box {
+  background-color: rgba(129, 129, 129, 0.2);
+  padding: 20px;
+  border-radius: 8px;
+  width: 45%; /* Largeur de chaque fenêtre */
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(236, 230, 230, 0.3);
+}
+
+.project-box img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.project-box p {
+  margin-top: 10px;
+  color: #fdfdfd;
+  font-size: 16px;
+}
+
+.project-box.left {
+  /* Ajuste l'alignement à gauche si besoin */
+  margin-left: 0;
+}
+
+.project-box.right {
+  /* Ajuste l'alignement à droite si besoin */
+  margin-right: 0;
+}
+
+footer {
+  background-color: #212121;
+  color: white;
+  text-align: center;
+  margin-top: 0;
+  padding: 30px 20px;
+  font-size: 22px;
+  /* border-top: 1px solid #ffffff; */
+  
+}
+
+.footer-content p {
+  margin: 10px 0;
+}
+
+.footer-content a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-content a:hover {
+  text-decoration: underline;
+}
+
+  </style>
+</head>
+<body>
+
+<nav>
+  <a onclick="scrollToSection('accueil')">Accueil</a>
+  <a onclick="scrollToSection('apropos')">À propos</a>
+  <a onclick="scrollToSection('experience')">Experience</a>
+  <a onclick="scrollToFooter('contact')">Contact</a>
+</nav>
+
+<section id="accueil">
+  <h1>SAMY KANEB</h1>
+
+  <div class="cv-box-preview">
+    <p>Bienvenue
+      Je m'appelle Samy, j'ai 18 ans et je suis actuellement étudiant en première année de BUT Informatique. <br> 
+      Intéressé par le domaine du développement, <br> je me forme activement aux différentes compétences techniques et méthodologiques nécessaires à ce métier.<br> 
+      Rigoureux et motivé, je suis déterminé à construire progressivement mon parcours professionnel dans le secteur du numérique.
+    </p>
+
+
+    <img src="image/cvsamypreview.png" alt="Aperçu de mon CV" >
+</div>
+
+  <div class="cv-box">
+    <h2>Mon CV</h2>
+    <a href="CV SAMY KANEB .pdf" download>Télécharger mon CV</a>
+  </div>
+</section>
+
+<section id="apropos">
+  <h1>À propos</h1>
+  <div class="mini-carousel">
+    <div class="content-wrapper">
+      <div class="text-side">
+        <h3 class="carousel-title">ASC Saint-medard de Doulon</h3>
+        <p class="carousel-desc">Description correspondante à la première image</p>
+      </div>
+
+      <div class="image-side">
+        <img src="image/computer science.png" class="active" alt="Photo 1">
+        <img src="image/design a propos.png" alt="Photo 2">
+
+
+        <div class="carousel-controls">
+          <button class="prev-btn">←</button>
+          <span class="indicator">1/2</span>
+          <button class="next-btn">→</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <h1>Experience</h1>
+  
+  <div class="experience-container">
+    <div class="project-box left">
+      <img src="image/Capture jeux go.png" alt="Projet 1" />
+      <h1>GOLANG JEU</h1>
+      <p>1er projet de développement scolaire  </p>
+    </div>
+
+    <div class="project-box right">
+      <img src="image/projet2.png" alt="Projet 2" />
+      <p>Still working on it...</p>
+    </div>
+  </div>
+</section>
+
+<!-- <section id="contact">
+  <h1>Contact</h1>
+  <p>Contenu de la section contact</p>
+</section> -->
+
+<footer>
+  <div class="footer-content">
+    <p>✆ Téléphone : 06 36 13 34 44</p>
+    <p>📄 <a href="CV SAMY KANEB .pdf" download>Télécharger mon CV</a></p>
+    <p>📧 Email : <a href="mailto:kanebsamy@gmail.com">kanebsamy@gmail.com</a></p>
+  </div>
+</footer>
+
+  
+
+<script>
+  function scrollToSection(sectionId) {
+    document.getElementById(sectionId).scrollIntoView({ 
+      behavior: 'smooth' 
+    });
+  }
+
+  function scrollToFooter() {
+    const footer = document.querySelector('footer');
+    footer.scrollIntoView({
+      behavior: 'smooth'
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+  const slides = [
+    {
+      title: "Etudiant en Informatique",
+      desc: "Description correspondante à la première image",
+      img: "https://via.placeholder.com/150x100?text=Photo+1"
+    },
+    {
+      title: "Coach de Football",
+      desc: "Description pour la deuxième image",
+      img: "https://via.placeholder.com/150x100?text=Photo+2"
+    }
+  ];
+
+  let currentIndex = 0;
+  const titleEl = document.querySelector('.carousel-title');
+  const descEl = document.querySelector('.carousel-desc');
+  const images = document.querySelectorAll('.image-side img');
+  const prevBtn = document.querySelector('.prev-btn');
+  const nextBtn = document.querySelector('.next-btn');
+  const indicator = document.querySelector('.indicator');
+
+  function updateSlide(index) {
+    currentIndex = index;
+    
+    // Mettre à jour le texte
+    titleEl.textContent = slides[index].title;
+    descEl.textContent = slides[index].desc;
+    
+    // Mettre à jour les images
+    images.forEach((img, i) => {
+      img.classList.toggle('active', i === index);
+    });
+    
+    // Mettre à jour l'indicateur
+    indicator.textContent = `${index + 1}/${slides.length}`;
+  }
+
+  prevBtn.addEventListener('click', () => {
+    const newIndex = (currentIndex - 1 + slides.length) % slides.length;
+    updateSlide(newIndex);
+  });
+
+  nextBtn.addEventListener('click', () => {
+    const newIndex = (currentIndex + 1) % slides.length;
+    updateSlide(newIndex);
+  });
+
+  // Initialisation
+  updateSlide(0);
+});
+</script>
+
+</body>
+</html>
