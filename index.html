@@ -53,6 +53,10 @@
   text-align: center;
   color: rgb(0, 0, 0);
   box-shadow: 0 4px 10px rgba(236, 230, 230, 0.3);
+  opacity: 1;
+  max-height: 1000px; /* valeur assez grande pour couvrir son contenu */
+  transition: opacity 0.5s ease, max-height 0.5s ease;
+  overflow: hidden;
 }
 
 
@@ -304,16 +308,21 @@ footer {
     margin: 10px 0;
     font-size: 22px;
   }
-
-  .cv-box {
+  .cv-box{
     display: none;
   }
-
+  .cv-box-preview img {
+    opacity: 0;
+    max-height: 0;
+    pointer-events: none;
+  }
   .cv-box-preview {
+    display: flex;
+    justify-content: center;
     flex-direction: column;
     gap: 20px;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 70px;
   }
 
   .cv-box-preview p {
@@ -362,7 +371,7 @@ footer {
   }
 }
 
-/* Tablettes (601px à 1024px) */
+
 @media (max-width: 1919px) and (min-width: 601px) {
   .cv-box {
     width: 30%;
@@ -370,6 +379,7 @@ footer {
     margin: 0px auto;
     transform: none;
     transform: translateX(210px);
+
     
   }
 
@@ -399,6 +409,11 @@ footer {
 }
 
 @media (max-width: 1600px) {
+  .cv-box{
+    opacity: 0;
+    max-height: 0;
+    pointer-events: none;
+  }
   .mini-carousel {
     max-width: 80vw;
     padding: 30px;
@@ -422,11 +437,7 @@ footer {
 }
 
 @media (max-width: 1300px) {
-  .cv-box-preview{
-    opacity: 0;
-    max-height: 0;
-    pointer-events: none;
-  }
+
   .mini-carousel {
     flex-direction: column;
     align-items: center;
@@ -537,7 +548,7 @@ footer {
   <div class="experience-container">
     <div class="project-box left">
       <img src="image/Capture jeux go.png" alt="Projet 1" />
-      <h1>GOLANG JEU</h1>
+      <h1>JEU GOLANG </h1>
       <p>1er projet de développement scolaire  </p>
     </div>
 
